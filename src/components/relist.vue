@@ -28,12 +28,11 @@ export default {
   },
   methods: {
     zhankai: function (id) {
-      console.log(id)
       this.$router.push({
         name: 'neirong',
         params: {
           id: id,
-          list: this.rewen
+          shuju: 'wenzhang.json'
         }
       })
     }
@@ -47,5 +46,6 @@ export default {
   }
   .list-group-item{
     /*height: 80px;*/
+    cursor: pointer;
   }
 </style>

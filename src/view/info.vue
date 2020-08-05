@@ -20,7 +20,6 @@ export default {
   created () {
     this.axios.get('../../static/introduce.json')
       .then(res => {
-        console.log(res)
         this.info = res.data.info
       })
       .catch(err => console.log(err))

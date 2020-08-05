@@ -1,12 +1,12 @@
 <template>
     <div id="card" >
-      <div class="card" v-for="wen in wenzhang" :key="wen.title">
+      <div class="card" v-for="(wen,index) in wenzhang" :key="wen.title">
         <div class="card-header">
           {{wen.title}}
         </div>
-        <div class="card-body">
+        <div class="card-body" v-on:click="zhanshi(index)">
           <blockquote class="blockquote mb-0">
-            <p>{{wen.article}}</p>
+            <p :class="zhankai === index?'':'more' ">{{wen.content}}</p>
             <footer class="blockquote-footer">来自{{wen.source}}<cite title="mingz">{{wen.author}}</cite></footer>
           </blockquote>
         </div>
@@ -19,13 +19,23 @@ export default {
   name: 'card',
   data () {
     return {
-      wenzhang: []
+      wenzhang: [],
+      zhankai: ''
     }
   },
   created () {
     this.axios.get('../../static/content.json').then(res => {
       this.wenzhang = res.data.data
     })
+  },
+  methods: {
+    zhanshi: function (index) {
+      if (this.zhankai !== index) {
+        this.zhankai = index
+      } else {
+        this.zhankai = ''
+      }
+    }
   }
 }
 </script>
@@ -34,4 +44,13 @@ export default {
 .card{
   margin: 0px 0px 10px 0px;
 }
+p{
+  cursor: pointer;
+}
+  .more{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 </style>

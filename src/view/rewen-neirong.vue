@@ -24,10 +24,13 @@ export default {
     }
   },
   created () {
-    this.axios.get('../../static/wenzhang.json')
+    this.axios.get('../../static/' + this.$route.params.shuju)
       .then(res => {
         this.wenzhangji = res.data.wenzhang
-        this.rewen = this.$route.params.list
+      })
+    this.axios.get('../../static/renmen.json')
+      .then(res => {
+        this.rewen = res.data.remen
       })
   },
   methods: {

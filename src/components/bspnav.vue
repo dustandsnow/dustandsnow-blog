@@ -1,14 +1,14 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <img src="../assets/loge.jpg" height="30px" width="30px">
-      <a class="navbar-brand" href="#">Dustandsnow</a>
+      <a class="navbar-brand" href="/relist">Dustandsnow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" v-for="(nav,index) in navs" v-on:click="gaolaing(index)" :key="nav.title">
-            <a class="nav-link" href="#">{{nav.title}}</a>
+          <li :class="['nav-item','dropdown',glindex === index ? 'active':'']" v-for="(nav,index) in navs" v-on:click="gaolaing(index)" :key="nav.title">
+            <a class="nav-link" :href="nav.href">{{nav.title}}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="nav.xiala">
               <a class="dropdown-item" href="#" v-for="chile in nav.child" :key="chile">{{chile}}</a>
             </div>
@@ -30,9 +30,10 @@ export default {
   components: {Card},
   data: function () {
     return {
+      glindex: 0,
       navs: [{
         title: '主页',
-        href: '#'
+        href: '/'
       },
       {
         title: '文章',
@@ -59,8 +60,7 @@ export default {
   },
   methods: {
     gaolaing: function (n) {
-      this.$('li').removeClass('active')
-      this.$('li')[n].addClass('active')
+      this.glindex = n
     },
     xiala: function () {
       this.$('.dropdown-menu').parent().addClass('dropdown')

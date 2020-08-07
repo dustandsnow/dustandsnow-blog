@@ -14,11 +14,14 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="请输入关键字" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
-        </form>
-        <div @click="dengl">denglv</div>
+        </form>-->
+        <div @click="dengl">
+          <span @click="dengl(false)">登录  /</span>
+          <span @click="dengl(true)">注册</span>
+        </div>
       </div>
     </nav>
 </template>
@@ -72,8 +75,13 @@ export default {
         'aria-expanded': 'false'
       })
     },
-    dengl: function () {
-
+    dengl: function (i) {
+      this.$router.push({
+        name: 'login',
+        params: {
+          id: i
+        }
+      })
     }
   }
 }

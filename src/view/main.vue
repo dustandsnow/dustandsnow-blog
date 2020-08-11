@@ -1,16 +1,8 @@
 <template>
     <div>
-      <bspnav></bspnav>
-      <div class="content">
-        <div class="left">
-          <info></info>
-        </div>
-        <div class="modden">
+      <bspnav ></bspnav>
+      <div class="container">
           <router-view></router-view>
-        </div>
-        <div class="right">
-          <card></card>
-        </div>
       </div>
     </div>
 </template>
@@ -37,23 +29,7 @@ export default {
 </script>
 
 <style scoped>
-  .content{
+  .container{
     margin-top: 76px;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-  .left{
-    width: 20%;
-    float: left;
-    margin: 0 10px 0 10px;
-  }
-  .modden{
-    width: 58%;
-    float: left;
-    /*margin-right: 20px;*/
-  }
-  .right{
-    width: 20%;
-    float: right;
   }
 </style>

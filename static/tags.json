@@ -1,0 +1,54 @@
+{
+  "tags": [{
+    "id": "1",
+    "tag": "java"
+  },{
+    "id": "2",
+    "tag": "javascrip"
+  },{
+    "id": "3",
+    "tag": "jquery"
+  },{
+    "id": "4",
+    "tag": "vue"
+  },{
+    "id": "5",
+    "tag": "spring"
+  },{
+    "id": "6",
+    "tag": "springMvc"
+  },{
+    "id": "7",
+    "tag": "spring boot"
+  },{
+    "id": "8",
+    "tag": "spring cloud"
+  },{
+    "id": "9",
+    "tag": "前端"
+  },{
+    "id": "10",
+    "tag": "后端"
+  },{
+    "id": "11",
+    "tag": "MySQL"
+  },{
+    "id": "12",
+    "tag": "Oracle"
+  },{
+    "id": "13",
+    "tag": "mybatis"
+  },{
+    "id": "14",
+    "tag": "git"
+  },{
+    "id": "15",
+    "tag": "全栈"
+  },{
+    "id": "16",
+    "tag": "linux"
+  },{
+    "id": "17",
+    "tag": "idea"
+  }]
+}

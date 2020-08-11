@@ -7,6 +7,7 @@ import neirong from '../view/rewen-neirong'
 import relist from '../components/relist'
 import info from '../view/info'
 import loading from '../components/loading'
+import tag from '../components/tag'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: loading
+    },
+    {
+      path: '/tag',
+      name: 'tag',
+      component: tag
     }
   ]
 })

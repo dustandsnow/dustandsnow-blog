@@ -99,7 +99,8 @@ export default {
     margin: auto;
   }
   nav{
-    margin: 0px 20px 10px 20px;
+    margin: auto;
+    max-width: 1140px;
   }
   image{
     margin: 8px;

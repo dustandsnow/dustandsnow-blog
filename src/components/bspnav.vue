@@ -1,26 +1,28 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <img src="../assets/loge.jpg" height="30px" width="30px">
-      <a class="navbar-brand" href="/relist">Dustandsnow</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li :class="['nav-item','dropdown',glindex === index ? 'active':'']" v-for="(nav,index) in navs" v-on:click="gaolaing(index)" :key="nav.title">
-            <a class="nav-link" :href="nav.href">{{nav.title}}</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="nav.xiala">
-              <a class="dropdown-item" href="#" v-for="chile in nav.child" :key="chile">{{chile}}</a>
-            </div>
-          </li>
-        </ul>
-        <!--<form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="请输入关键字" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
-        </form>-->
-        <div @click="dengl">
-          <span @click="dengl(false)">登录  /</span>
-          <span @click="dengl(true)">注册</span>
+      <div class="container">
+        <img src="../assets/loge.jpg" height="30px" width="30px">
+        <a class="navbar-brand" href="/relist">Dustandsnow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li :class="['nav-item','dropdown',glindex === index ? 'active':'']" v-for="(nav,index) in navs" v-on:click="gaolaing(index)" :key="nav.title">
+              <router-link :to="{name:nav.href}" class="nav-link">{{nav.title}}</router-link>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="nav.xiala">
+                <a class="dropdown-item" href="#" v-for="chile in nav.child" :key="chile">{{chile}}</a>
+              </div>
+            </li>
+          </ul>
+          <!--<form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="请输入关键字" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+          </form>-->
+          <div @click="dengl">
+            <span @click="dengl(false)">登录  /</span>
+            <span @click="dengl(true)">注册</span>
+          </div>
         </div>
       </div>
     </nav>
@@ -36,11 +38,11 @@ export default {
       glindex: 0,
       navs: [{
         title: '主页',
-        href: '/'
+        href: 'relist'
       },
       {
-        title: '文章',
-        href: '#'
+        title: '标签',
+        href: 'tagvm'
       },
       {
         title: '笔记',
@@ -100,6 +102,8 @@ export default {
   }
   nav{
     margin: auto;
+  }
+  .align-middle{
     max-width: 1140px;
   }
   image{

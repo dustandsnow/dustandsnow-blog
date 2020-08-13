@@ -1,6 +1,7 @@
 <template>
     <div>
-      <bspnav ></bspnav>
+      <bspnav></bspnav>
+      <lunbo class="container-fluid"></lunbo>
       <div class="container">
           <router-view></router-view>
       </div>
@@ -11,25 +12,25 @@
 import Bspnav from '../components/bspnav'
 import Card from './document'
 import Info from './info'
+import Lunbo from '../components/lunbo'
 export default {
   name: '',
-  components: {Info, Card, Bspnav},
+  components: {Lunbo, Info, Card, Bspnav},
   data () {
     return {
     }
   },
   mounted () {
-  },
-  created () {
-    this.$router.push({
-      path: '/relist'
-    })
   }
 }
+
 </script>
 
 <style scoped>
   .container{
-    margin-top: 76px;
+    margin-top: -70px;
+  }
+  .container-fluid{
+    height: 800px;
   }
 </style>

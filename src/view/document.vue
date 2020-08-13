@@ -20,13 +20,28 @@ export default {
   data () {
     return {
       wenzhang: [],
+      wens: [],
       zhankai: ''
     }
   },
+  props: ['listid'],
   created () {
     this.axios.get('../../static/content.json').then(res => {
       this.wenzhang = res.data.data
+      this.wens = res.data.data
     })
+  },
+  watch: {
+    'listid': function () {
+      let www = []
+      for (let i = 0; i < this.wens.length; i++) {
+        console.log(this.listid, this.wens[i].id)
+        if (this.listid > this.wens[i].id) {
+          www.push(this.wens[i])
+        }
+      }
+      this.wenzhang = www
+    }
   },
   methods: {
     zhanshi: function (index) {
@@ -42,7 +57,7 @@ export default {
 
 <style scoped>
 .card{
-  margin: 0px 0px 10px 0px;
+  margin: 0 0 10px 0;
 }
 p{
   cursor: pointer;

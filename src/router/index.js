@@ -8,6 +8,8 @@ import relist from '../components/relist'
 import info from '../view/info'
 import loading from '../components/loading'
 import tag from '../components/tag'
+import lunbo from '../components/lunbo'
+import TagVw from '../view/TagVw'
 
 Vue.use(Router)
 
@@ -29,6 +31,10 @@ export default new Router({
       component: main,
       children: [
         {
+          path: '',
+          component: relist
+        },
+        {
           path: 'relist',
           name: 'relist',
           component: relist
@@ -37,6 +43,11 @@ export default new Router({
           path: 'neirong',
           name: 'neirong',
           component: neirong
+        },
+        {
+          path: '/tagvm',
+          name: 'tagvm',
+          component: TagVw
         }
       ]
     },
@@ -59,6 +70,11 @@ export default new Router({
       path: '/tag',
       name: 'tag',
       component: tag
+    },
+    {
+      path: '/lunbo',
+      name: 'lunbo',
+      component: lunbo
     }
   ]
 })

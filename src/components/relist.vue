@@ -17,7 +17,7 @@
       </div>
       <tag ></tag>
     </div>
-    <card class="left" ></card>
+    <card :listid="listid" class="left" ></card>
   </div>
 </template>
 
@@ -30,7 +30,8 @@ export default {
   components: {Tag, Info, Card},
   data () {
     return {
-      rewen: []
+      rewen: [],
+      listid: ''
     }
   },
   created () {
@@ -41,13 +42,7 @@ export default {
   },
   methods: {
     zhankai: function (id) {
-      this.$router.push({
-        name: 'neirong',
-        params: {
-          id: id,
-          shuju: 'wenzhang.json'
-        }
-      })
+      this.listid = id
     }
   }
 }
